@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/star.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+   
+    <%-include('./flash')%>
+
+    <section class="row">
+        <div class="col-6 border solid" style="border: 30x solid black">
+          <h1><%=foundproduct.name%></h1>
+          <img src="<%=foundproduct.img%>" alt="" width="700px" height="400px">
+          <h2><%=foundproduct.price%></h2>
+          <p><%=foundproduct.description%></p>
+        </div>
+        <!-- /product/:id/rating -->
+        
+        <div class="col-6 border">
+            <h1>Rating</h1>
+            <form action="/products/<%=foundproduct._id%>/rating" method="POST">
+                <!-- <label for="star">rating</label>
+                <input type="range" min="0" max="5" name="rating" id="star"> -->
+                <fieldset class="starability-basic">
+                    <legend>First rating:</legend>
+                    <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                    <input type="radio" id="first-rate1" name="rating" value="1" />
+                    <label for="first-rate1" title="Terrible">1 star</label>
+                    <input type="radio" id="first-rate2" name="rating" value="2" />
+                    <label for="first-rate2" title="Not good">2 stars</label>
+                    <input type="radio" id="first-rate3" name="rating" value="3" />
+                    <label for="first-rate3" title="Average">3 stars</label>
+                    <input type="radio" id="first-rate4" name="rating" value="4" />
+                    <label for="first-rate4" title="Very good">4 stars</label>
+                    <input type="radio" id="first-rate5" name="rating" value="5" />
+                    <label for="first-rate5" title="Amazing">5 stars</label>
+                  </fieldset>
+                <br>
+                <label for="comments"></label>
+                <textarea name="comments" id="text" cols="30" rows="10"></textarea>
+                <button type="submit">submit</button>
+    
+            </form>
+    
+        </div>
+    </section>
+    <div style>
+        <%for(let item of foundproduct.reviews){%>
+            <!-- <label for="">rating:</label>
+            <label for=""><%=item.rating%></label> -->
+            <!-- star rating -->
+            <h3>Rate</h3>
+            <p class="starability-result" data-rating="<%=item.rating%>">
+              Rated: <%=item.rating%> 
+            </p>
+            <br>
+            <label for="">Description:</label>
+            <div>
+                <p><%=item.comments%></p>
+            </div>
+            <p><%=item.createdAt%></p>
+           
+            <!-- <p><%=item.updatedAt%></p> -->
+       <% }%>
+
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

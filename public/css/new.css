@@ -1,0 +1,36 @@
+#top{
+    border: 2px ;
+    display: flex;
+   background-color:#FFC017;
+    border-radius: 2px;
+    font-style: oblique;
+    font-size: large ;
+    margin: 0px;
+    width: vw;
+    height: 100px;
+    border-bottom:2px solid black ;
+}
+.naam{
+    justify-content: space-around;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    margin: 10px;
+    width: 100vw;
+    height: 30px;
+    font-size: larger;
+}
+#tille{
+    position: relative;
+    left: 500px;
+}
+#add{
+    background-color: black;
+    color: white;
+    font-size: x-large;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+#add:hover{
+    background-color: gray;
+    
+}
